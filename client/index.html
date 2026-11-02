@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1f6feb" />
+  <meta name="description" content="Cliente PWA de mensajería en tiempo real con Hub Central" />
+  <title>Hub Central · Chat Distribuido</title>
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%231f6feb'/%3E%3Ctext x='256' y='350' font-size='290' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EH%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="titulo">
+        <h1>Hub Central</h1>
+        <p>Chat distribuido en tiempo real</p>
+      </div>
+      <div id="estado" class="estado desconectado" role="status" aria-live="polite">
+        <span class="punto"></span>
+        <span id="estado-texto">Desconectado</span>
+      </div>
+    </header>
+
+    <div id="banner-offline" class="banner-offline oculto">
+      ⚠️ Sin conexión a internet. Mostrando la aplicación desde la caché.
+    </div>
+
+    <section class="controles">
+      <label>
+        Nombre
+        <input type="text" id="nombre" maxlength="20" placeholder="Tu nombre" autocomplete="off" />
+      </label>
+      <label>
+        Canal
+        <select id="canal">
+          <option value="general"># general</option>
+          <option value="avisos"># avisos</option>
+          <option value="proyectos"># proyectos</option>
+        </select>
+      </label>
+      <div class="usuarios">
+        <span class="etiqueta">En línea</span>
+        <strong id="total-usuarios">0</strong>
+      </div>
+    </section>
+
+    <main id="mensajes" class="mensajes" aria-live="polite"></main>
+
+    <form id="formulario" class="formulario" autocomplete="off">
+      <input
+        type="text"
+        id="texto"
+        maxlength="500"
+        placeholder="Escribe un mensaje..."
+        disabled
+        required
+      />
+      <button type="submit" id="enviar" disabled>Enviar</button>
+    </form>
+
+    <footer class="pie">
+      <span id="estado-hub">Estado del Hub: consultando...</span>
+    </footer>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

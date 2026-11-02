@@ -1,0 +1,21 @@
+{
+  "name": "Hub Central - Chat Distribuido",
+  "short_name": "Hub Chat",
+  "description": "Cliente PWA de mensajería en tiempo real con arquitectura Cliente-Servidor y Hub Central.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#eef1f6",
+  "theme_color": "#1f6feb",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%231f6feb'/%3E%3Ctext x='256' y='350' font-size='290' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EH%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
